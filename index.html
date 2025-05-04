@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        /* CSS ที่ใช้ในการจัดรูปแบบ */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        .video-container {
+            position: relative;
+            margin: 20px 0;
+        }
+        /* ปกวิดีโอ */
+        .video-thumbnail {
+            width: 100%;
+            cursor: pointer;
+            display: block;
+            position: relative;
+            transition: transform 0.3s ease-in-out; /* เพิ่มการเคลื่อนไหวเมื่อ hover */
+        }
+        .video-thumbnail:hover {
+            transform: scale(1.05); /* ขยายขนาดเล็กน้อยเมื่อ hover */
+        }
+        /* สไตล์ของปุ่ม Play */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* เพิ่มการเปลี่ยนสีเมื่อ hover */
+        }
+        .play-button:hover {
+            background-color: rgba(0, 0, 0, 0.8); /* เปลี่ยนสีเมื่อ hover */
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            display: none; /* ซ่อน iframe */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Watch videos and shop!</h1>
+    
+
+        <!-- ฝังวิดีโอ YouTube -->
+        <div class="video-container">
+            <!-- รูปภาพปกของวิดีโอ YouTube พร้อมปุ่ม Play -->
+            <img src="https://img.youtube.com/vi/fNHx168HqzE/maxresdefault.jpg" alt="YouTube video thumbnail" class="video-thumbnail" onclick="startVideo()">
+            
+            <!-- ปุ่ม Play -->
+            <div class="play-button" onclick="startVideo()">
+                &#9658; <!-- Unicode ของปุ่ม Play -->
+            </div>
+
+            <!-- วิดีโอที่จะแสดงเมื่อคลิก -->
+            <iframe id="video" src="https://www.youtube.com/embed/fNHx168HqzE?autoplay=0" title="YouTube video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+        // ฟังก์ชันที่เริ่มเล่นวิดีโอและเปิด Shopee หรือ Lazada ในแท็บใหม่
+        function startVideo() {
+            // เปลี่ยน URL ของ iframe เพื่อเริ่มเล่นวิดีโอ
+            var iframe = document.getElementById("video");
+            iframe.style.display = "block"; // แสดง iframe ของวิดีโอ
+            iframe.src = "https://www.youtube.com/embed/fNHx168HqzE?autoplay=1"; // เล่นวิดีโอทันที
+
+            // เปิด Shopee หรือ Lazada ในแท็บใหม่
+            window.open("https://shopee.co.th/AOC-LED-Monitor-27-27B36H-67-27-IPS-100Hz-1ms-FHD-MNL-002109-i.25344508.28856829455?sp_atk=476f9db5-6259-4aac-be7c-c0c7b701ab24&xptdk=476f9db5-6259-4aac-be7c-c0c7b701ab24", "_blank");
+        }
+
+
+
+
+    </script>
+</body>
+</html>
